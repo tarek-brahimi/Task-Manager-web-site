@@ -8,12 +8,12 @@ function renderTodolist() {
     const todo = toDolist2[i];
     const name2 = todo.name;
     const date2 = todo.dueDate;
-    const html = `<p> ${name2}  ${date2}  <button onclick="toDolist2.splice(${i},1);renderTodolist()"> delete</button>  </p>`;
+    const html = `<div>${name2}</div>  <div>${date2} </div>  <button onclick="toDolist2.splice(${i},1);renderTodolist()" class="red-button"> delete</button> `;
     todohtml += html;
   
     
 }
- document.getElementById("the-list").innerHTML= todohtml;}
+ document.querySelector('.grid').innerHTML= todohtml;}
 
 function addList() {
   let input = document.getElementById("todoElement");

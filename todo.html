@@ -3,18 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
   <body>
     <p>To Do List practic 1</p>
     <input type="text" placeholder="Todo name" id="todoElement" />
     <button onclick="addList()" ADD>ADD</button>
-
     <p>To Do List practic 2</p>
-    <input type="text" placeholder="Todo name" id="todoElement2" />
-    <input type="date" id="date" />
-    <button onclick="addList2()">ADD</button>
-    <p id="the-list"></p>
+    <div class="gridt">
+      <input type="text" placeholder="Todo name" id="todoElement2" class="placeholder" />
+      <input type="date" id="date"  class="thedate"/>
+      <button onclick="addList2()"   class="add-button">ADD</button>
+      <div class="grid"></div>
+    </div>
   </body>
 
   <script src="script.js"></script>
