@@ -4,7 +4,7 @@ const toDolist2 = [{ name: "make dinner", dueDate: "2022-12-22" }];
 renderTodolist();
 function renderTodolist() {
   let todohtml = "";
-  toDolist2.forEach(function (todo, index) {
+  toDolist2.forEach( (todo, index) => {
     const name2 = todo.name;
     const date2 = todo.dueDate;
     const html = `<div>${name2}</div>  <div>${date2} </div>  <button onclick="toDolist2.splice(${index},1);renderTodolist()" class="red-button"> delete</button> `;
@@ -36,4 +36,19 @@ function addList2() {
   inputElement.value = "";
 
   renderTodolist();
+}
+let change = document.querySelector(".add-button");
+
+change.onclick = function () {
+  if (change.classList.contains("add-button")) {
+    change.classList.remove("add-button");
+    change.classList.add("ohl");
+    change.innerText = "loading";}
+    
+
+   else {
+    change.classList.remove("ohl");
+    change.classList.add("add-button");
+    change.innerText ="ADD";
+  }
 }
