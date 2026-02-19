@@ -7,7 +7,7 @@ function renderTodolist() {
   toDolist2.forEach((todo, index) => {
     const name2 = todo.name;
     const element = todo.cate;
-    const html = ` <div><button>h</button></div><div>${name2}</div>  <div>${element} </div>  <button class="red-button"> delete</button> `;
+    const html = ` <div><button>h</button></div><div>${name2}</div>  <div>${element} </div> <button class="edit-button"> edit</button>  <button class="red-button"> delete</button> `;
     todohtml += html;
   });
 
@@ -18,6 +18,13 @@ function renderTodolist() {
       renderTodolist();
     });
   });
+    document.querySelectorAll(".edit-button").forEach((editbutton, index) => {
+    editbutton.addEventListener("click", () => {
+     
+      
+    });
+  });
+}
 }
 document.querySelector(".add-button").addEventListener("click", () => {
   addList2();
