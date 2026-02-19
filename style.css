@@ -3,20 +3,28 @@ body {
   height: 100vh;
 
   display: flex;
-  justify-content: center; 
-  align-items: center;     
+  justify-content: center;
+  align-items: center;
 
-  background-color: #D9E2F1;
+  background-color: #d9e2f1;
 }
 
 #main-panel {
   width: 500px;
   padding: 20px;
-  background-color:#FCFCFE;
+  background-color: #fcfcfe;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
-.input{
+.edit-panel {
+  display: grid;
+  grid-template-columns: 20px 150px 100px 70px 70px;
+  column-gap: 15px;
+  row-gap: 15px;
+  margin-bottom: 15px;
+  align-items: stretch;
+}
+.input {
   display: grid;
   grid-template-columns: 200px 150px 100px;
   column-gap: 15px;
@@ -24,7 +32,7 @@ body {
   margin-bottom: 15px;
   align-items: stretch;
 }
-.task{
+.task {
   display: grid;
   grid-template-columns: 20px 150px 100px 70px 70px;
   column-gap: 15px;
@@ -39,21 +47,21 @@ body {
   font-size: 15px;
   padding: 6px;
 }
-.add-button{
+.add-button {
   background: rgb(1, 181, 1);
   color: rgb(255, 255, 255);
   border: none;
   border-radius: 25px;
   cursor: pointer;
 }
-.red-button{
+.red-button {
   background-color: rgb(255, 0, 0);
   color: white;
   border: none;
   border-radius: 25px;
   padding: 7px;
-    cursor: pointer;
+  cursor: pointer;
 }
-.ohl{
-   background-color:rgb(76, 0, 255);
+.ohl {
+  background-color: rgb(76, 0, 255);
 }
