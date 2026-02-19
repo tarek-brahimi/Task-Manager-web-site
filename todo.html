@@ -7,15 +7,49 @@
     <title>Document</title>
   </head>
   <body>
-    <p>To Do List practic 1</p>
-    <input type="text" placeholder="Todo name" id="todoElement" />
-    <button onclick="addList()" ADD>ADD</button>
-    <p>To Do List practic 2</p>
-    <div class="gridt">
-      <input type="text" placeholder="Todo name" id="todoElement2" class="placeholder" />
-      <input type="date" id="date"  class="thedate"/>
-      <button onclick="addList2()"   class="add-button">ADD</button>
-      <div class="grid"></div>
+    <div id="main-panel">
+      <div id="header">
+        <h1>Task Manager</h1>
+        <div class="line"></div>
+      </div>
+      <div id="control">
+        <div class="input">
+          <input
+            type="text"
+            placeholder="Todo name"
+            id="todoElement2"
+            class="placeholder"
+          />
+          <select id="category">
+            <option value="no-category">no category</option>
+            <option value="Personal">Personal</option>
+            <option value="Work">Work</option>
+            <option value="Study">Study</option>
+            <option value="Tech">Tech</option>
+            <option value="Shopping">Shopping</option>
+          </select>
+
+          <button class="add-button">ADD</button>
+        </div>
+        <div>
+          <button onclick="" class="filter-btn" id="all">All</button>
+
+          <button onclick="" class="filter-btn" id="Pending">Pending</button>
+
+          <button onclick="" class="filter-btn" id="Completed">
+            Completed
+          </button>
+        </div>
+        <div class="line"></div>
+      </div>
+      <div id="tasks">
+        <div class="task"></div>
+      </div>
+      <div id="progress">
+        <p>Progress:</p>
+        <div id="background"></div>
+        <div id="on-top"></div>
+      </div>
     </div>
   </body>
 
