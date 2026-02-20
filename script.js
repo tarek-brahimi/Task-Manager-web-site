@@ -45,15 +45,17 @@ function renderTodolist() {
       `;
     } else {
       todohtml += `
-        <div>
+       <div class ="task-content">
+      <div>
   <button class="${todo.status === "completed" ? "marked-btn" : "mark-btn"}">
     ${todo.status === "completed" ? "✔" : ""}
   </button>
 </div>
         <div>${todo.name}</div>
         <div>${todo.cate}</div>
-        <button class="edit-button">Edit</button>
-        <button class="red-button">Delete</button>
+        <div><button class="edit-button">Edit</button></div>
+       <div> <button class="red-button">Delete</button></div>
+       </div>
       `;
     }
   });
@@ -148,4 +150,27 @@ document.querySelector(".Pending-btn").addEventListener("click", () => {
 document.querySelector(".Completed-btn").addEventListener("click", () => {
   showmePending = "completed";
   renderTodolist();
+});
+const filterButtons = document.querySelectorAll(".filter button");
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+
+    
+    filterButtons.forEach((btn) => {
+      btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    if (button.id === "all") {
+      showmePending = "all";
+    } else if (button.id === "Pending") {
+      showmePending = "pending";
+    } else if (button.id === "Completed") {
+      showmePending = "completed";
+    }
+
+    renderTodolist();
+  });
 });

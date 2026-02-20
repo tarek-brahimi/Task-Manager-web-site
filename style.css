@@ -73,18 +73,46 @@ h1{
   margin-bottom: 15px;
   align-items: stretch;
 }
-.task {
+.task-content {
   display: grid;
-  grid-template-columns: 20px 150px 100px 70px 70px;
+  padding: 10px;
+  grid-template-columns: 20px 120px 90px 70px 70px;
   column-gap: 15px;
+  justify-content: space-between;
   row-gap: 15px;
   margin-bottom: 15px;
+  margin-right: 15px;
   align-items: stretch;
+ width: 500px;
+ margin-left: 20px;
+  border-radius: 7px;
+  border-width: 0px;
+  border-color: #e2e2e2;
+  box-shadow: 0px 0px 5px 1px #adadad;
+  align-items: center;
 }
 
 .placeholder {
   font-size: 15px;
+  font-family: inter;
+  background-color:var(--back-ground-color);
   padding: 6px;
+  border-radius: 7px;
+  border-width: 0px;
+  border-color: #e2e2e2;
+  box-shadow: 0px 0px 5px 1px #adadad;
+  
+}
+#category{
+  font-size: 15px;
+  font-family: inter;
+  background-color:var(--back-ground-color);
+  padding: 6px;
+  border-radius: 7px;
+  border-width: 0px;
+  border-color: #e2e2e2;
+  box-shadow: 0px 0px 5px 1px #adadad;
+  
 }
 .add-button {
   
@@ -95,6 +123,16 @@ h1{
   font-weight: 600;
   cursor: pointer;
   transition: opacity 0.2s;
+}
+.edit-button{
+  background-color:#e5e7eb ;
+  color: #2d4162;
+  border: none;
+  font-size: 13px;
+  border-radius: 7px;
+  padding: 7px;
+  cursor: pointer;
+  width: 100%;
 }
 .add-button:hover {
   opacity: 0.9;
@@ -107,6 +145,7 @@ h1{
   border-radius: 7px;
   padding: 7px;
   cursor: pointer;
+   width: 100%;
 }
 
 .mark-btn {
@@ -115,6 +154,9 @@ h1{
   width: 20px;
   border: 1px solid var(--border-color);
   cursor: pointer;
+  margin-top: 4px;
+  margin-left: 7px;
+  border-radius: 5px;
 }
 
 .marked-btn {
@@ -128,6 +170,9 @@ h1{
   align-items: center;
   justify-content: center;
   font-size: 12px;
+   margin-top: 4px;
+    border-radius: 5px;
+  margin-left: 7px;
 }
 #container-progress {
   height: 20px;
@@ -152,27 +197,28 @@ h1{
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #e5e7eb;
-  border-radius: 10px;
+ 
   overflow: hidden;
-  width: fit-content;
+  width: 100%;
+  max-width: 350px;
   margin: 20px auto;
 }
-.filter-btn,
-.Pending-btn,
-.Completed-btn {
+.filter button  {
+ display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 10px 30px;
+   border-radius: 5px;
+   margin: 5px; ;
   border: none;
   background: transparent;
   cursor: pointer;
   font-size: 12px;
-  color: var(--filter-btn);
+  color: var(--filter-btn-color);
   transition: all 0.2s ease;
 }
 
-.filter-btn,
-.Pending-btn,
-.Completed-btn:active {
+.filter button.active {
   background: var(--back-filter-color);
   color: white;
 }
@@ -192,16 +238,4 @@ h1{
   font-family: 'Inter';
   outline: none;
 }
-.category {
-  flex: 1;
-  height: 42px;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  background: white;
-  padding: 0 10px;
-  color: #4b5563;
-}
-#all {
-  background: var(--back-filter-color);
-  color: white;
-}
+
