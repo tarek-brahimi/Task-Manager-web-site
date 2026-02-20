@@ -1,19 +1,30 @@
-const toDolist2 = [{ name: "", cate: "" }];
+const toDolist2 = [{ name: "", cate: "", status: "pending" }];
 let editingIndex = null;
+let showmePending;
+let thePending;
 renderTodolist();
 function renderTodolist() {
   let todohtml = "";
+  let filteredList = toDolist2;
 
-  toDolist2.forEach((todo, index) => {
+  if (showmePending === "pending") {
+    filteredList = toDolist2.filter((todo) => todo.status === "pending");
+  } else if (showmePending === "completed") {
+    filteredList = toDolist2.filter((todo) => todo.status === "completed");
+  }
+  filteredList.forEach((todo, index) => {
     const name2 = todo.name;
     const element = todo.cate;
+    const isCompleted = todo.status === "completed";
+    const buttonClass = isCompleted ? "marked-btn" : "mark-btn";
+    const checkMark = isCompleted ? "✔" : "";
     if (editingIndex === index) {
       todohtml += `
       <div class="edit-panel">
-        <div><button>h</button></div>
+        <div><button class="mark-btn"></button></div>
         <div><input class="edit-name" value="${todo.name}"></div>
 
-        
+
           <div>
       <select class="edit-cate">
         <option value="no-category" ${todo.cate === "no-category" ? "selected" : ""}>no category</option>
@@ -25,20 +36,24 @@ function renderTodolist() {
       </select>
     </div>
     <div>
-        <button class="save-button">save</button>
+        <button class="save-button">Save</button>
          </div>
          <div>
-        <button class="red-button">delete</button>
+        <button class="red-button">Delete</button>
          </div>
         </div>
       `;
     } else {
       todohtml += `
-        <div><button>h</button></div>
+        <div>
+  <button class="${todo.status === "completed" ? "marked-btn" : "mark-btn"}">
+    ${todo.status === "completed" ? "✔" : ""}
+  </button>
+</div>
         <div>${todo.name}</div>
         <div>${todo.cate}</div>
-        <button class="edit-button">edit</button>
-        <button class="red-button">delete</button>
+        <button class="edit-button">Edit</button>
+        <button class="red-button">Delete</button>
       `;
     }
   });
@@ -46,12 +61,16 @@ function renderTodolist() {
   document.querySelector(".task").innerHTML = todohtml;
   document.querySelectorAll(".red-button").forEach((deletebutton, index) => {
     deletebutton.addEventListener("click", () => {
-      toDolist2.splice(index, 1);
+      const todoToDelete = filteredList[index];
+      const realIndex = toDolist2.indexOf(todoToDelete);
+      toDolist2.splice(realIndex, 1);
       renderTodolist();
     });
   });
   document.querySelectorAll(".edit-button").forEach((btn, index) => {
     btn.addEventListener("click", () => {
+      const todoEdit = filteredList[index];
+      const realIndex = toDolist2.indexOf(todoEdit);
       editingIndex = index;
       console.log("clicked edit", index);
       renderTodolist();
@@ -69,6 +88,28 @@ function renderTodolist() {
       renderTodolist();
     });
   });
+ document.querySelectorAll(".mark-btn, .marked-btn").forEach((btn, index) => {
+  btn.addEventListener("click", () => {
+    const todo = filteredList[index];
+
+    
+    if (todo.status === "pending") {
+      todo.status = "completed";
+    } else {
+      todo.status = "pending";
+    }
+
+    
+    renderTodolist();
+  });
+});
+  const totalTasks = toDolist2.length;
+  const completedTasks = toDolist2.filter(
+    (todo) => todo.status === "completed",
+  ).length;
+  const progressPercent =
+    totalTasks === 0 ? 0 : Math.round((completedTasks / totalTasks) * 100);
+  document.getElementById("on-top").style.width = progressPercent + "%";
 }
 
 document.querySelector(".add-button").addEventListener("click", () => {
@@ -85,6 +126,7 @@ function addList2() {
   toDolist2.push({
     name,
     cate,
+    status: "pending",
   });
 
   inputElement.value = "";
@@ -93,20 +135,17 @@ function addList2() {
 }
 let change = document.querySelector(".add-button");
 
-function showAll() {}
-function showPending() {}
-function showCompleted() {}
+document.querySelector(".filter-btn").addEventListener("click", () => {
+  showmePending = "all";
+  renderTodolist();
+});
 
-/*
-change.onclick = function () {
-  if (change.classList.contains("add-button")) {
-    change.classList.remove("add-button");
-    change.classList.add("ohl");
-    change.innerText = "loading";
-  } else {
-    change.classList.remove("ohl");
-    change.classList.add("add-button");
-    change.innerText = "ADD";
-  }
-};
-*/
+document.querySelector(".Pending-btn").addEventListener("click", () => {
+  showmePending = "pending";
+  renderTodolist();
+});
+
+document.querySelector(".Completed-btn").addEventListener("click", () => {
+  showmePending = "completed";
+  renderTodolist();
+});

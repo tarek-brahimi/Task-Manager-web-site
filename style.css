@@ -1,11 +1,9 @@
 body {
   margin: 0;
   height: 100vh;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   background-color: #d9e2f1;
 }
 
@@ -26,7 +24,7 @@ body {
 }
 .input {
   display: grid;
-  grid-template-columns: 200px 150px 100px;
+  grid-template-columns: 1fr 170px 70px;
   column-gap: 15px;
   row-gap: 15px;
   margin-bottom: 15px;
@@ -48,20 +46,78 @@ body {
   padding: 6px;
 }
 .add-button {
-  background: rgb(1, 181, 1);
+  background: #1D66F2;
   color: rgb(255, 255, 255);
   border: none;
-  border-radius: 25px;
+  border-radius: 7px;
   cursor: pointer;
 }
 .red-button {
-  background-color: rgb(255, 0, 0);
+  background-color: #F14F54;
   color: white;
   border: none;
-  border-radius: 25px;
+  font-size: 13px;
+  border-radius: 7px;
   padding: 7px;
   cursor: pointer;
 }
-.ohl {
-  background-color: rgb(76, 0, 255);
+
+.mark-btn {
+  background-color: #d9e2f1; 
+  height: 20px;
+  width: 20px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+
+.marked-btn {
+  background-color: blue;
+  color: white; 
+  height: 20px;
+  width: 20px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+#container-progress{
+  height: 20px;
+  background-color:#ccc ;
+  position: relative;
+}
+#background {
+  width: 100%;
+  height: 20px;
+  background-color: #eee;
+  border-radius: 10px;
+  position: relative; 
+  overflow: hidden;
+}
+
+#on-top {
+  height: 100%;
+  background-color: #2268F2;
+  transition: width 0.3s ease;
+}
+.filter{
+    display: grid;
+  grid-template-columns:80px 80px 80px;
+  column-gap: 0px;
+ align-items: center;
+  margin-bottom: 15px;
+  
+}
+.filter-btn,.Completed-btn,.Pending-btn{
+  background-color: #EDEFF6;
+  color:#637289 ;
+  border-color: #637289;
+  border-width: 1px;
+  height: 30px;
+  border-radius: 8px;
+}
+.Completed-btn{ 
+  border-left: 0px;
 }
