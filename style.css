@@ -1,18 +1,61 @@
+:root {
+  --base-color: #d9e2f1;
+  --back-ground-color: #fcfcfe;
+  --shadow-color: rgba(0, 0, 0.1);
+  --add-btn-color: #1d66f2;
+  --delete-btn-color: #f14f54;
+  --mark-btn-color: #d9e2f1;
+  --border-color: #ccc;
+  --marked-btn-color: #1d66f2;
+  --text-color: #e5e7eb;
+   --progres-color:#eee;
+  --ontop-color :#2268f2;
+  --filter-btn-color:#4b5563;
+  --back-filter-color:#2563eb;
+  --line-color: #e8e8e8;
+}
+.dark-mode {
+  --base-color: #000000;
+  
+  --back-ground-color: #050518;
+  --shadow-color: rgb(153, 0, 255);
+  --add-btn-color: #8b1df2;
+  --delete-btn-color: #f14f54;
+  --mark-btn-color: #e6eaf0;
+  --border-color: #ccc;
+  --marked-btn-color: #a71df2;
+  --text-color: #e5e7eb;
+  --progres-color:#eee;
+  --ontop-color :#2268f2;
+  --filter-btn-color:#4b5563;
+  --back-filter-color:#2563eb;
+}
+
 body {
   margin: 0;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #d9e2f1;
+  background-color: var(--base-color);
+  font-family: Arial, Helvetica, sans-serif;
+  
 }
+h1{
+ text-align: center;
+  font-size: 28px;
+  color: #2d4162;
+  font-weight: 800;
+  margin-top: 10px;
+  margin-bottom: 30px;
 
+}
 #main-panel {
-  width: 500px;
-  padding: 20px;
-  background-color: #fcfcfe;
+  width: 550px;
+  padding: 30px;
+  background-color: var(--back-ground-color);
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px #ffffff;
 }
 .edit-panel {
   display: grid;
@@ -38,22 +81,26 @@ body {
   margin-bottom: 15px;
   align-items: stretch;
 }
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
+
 .placeholder {
   font-size: 15px;
   padding: 6px;
 }
 .add-button {
-  background: #1D66F2;
-  color: rgb(255, 255, 255);
+  
+  background: var(--add-btn-color);
+  color: white;
   border: none;
-  border-radius: 7px;
+  border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
+  transition: opacity 0.2s;
+}
+.add-button:hover {
+  opacity: 0.9;
 }
 .red-button {
-  background-color: #F14F54;
+  background-color: var(--delete-btn-color);
   color: white;
   border: none;
   font-size: 13px;
@@ -63,17 +110,16 @@ body {
 }
 
 .mark-btn {
-  background-color: #d9e2f1; 
+  background-color: var(--mark-btn-color);
   height: 20px;
   width: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   cursor: pointer;
 }
 
-
 .marked-btn {
-  background-color: blue;
-  color: white; 
+  background-color: var(--marked-btn-color);
+  color: white;
   height: 20px;
   width: 20px;
   border: none;
@@ -83,41 +129,79 @@ body {
   justify-content: center;
   font-size: 12px;
 }
-#container-progress{
+#container-progress {
   height: 20px;
-  background-color:#ccc ;
+  background-color: var(--border-color);
   position: relative;
 }
 #background {
   width: 100%;
   height: 20px;
-  background-color: #eee;
+  background-color:var(--progres-color);
   border-radius: 10px;
-  position: relative; 
+  position: relative;
   overflow: hidden;
 }
 
 #on-top {
   height: 100%;
-  background-color: #2268F2;
+  background-color: var(--ontop-color);
   transition: width 0.3s ease;
 }
-.filter{
-    display: grid;
-  grid-template-columns:80px 80px 80px;
-  column-gap: 0px;
- align-items: center;
+.filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+  width: fit-content;
+  margin: 20px auto;
+}
+.filter-btn,
+.Pending-btn,
+.Completed-btn {
+  padding: 10px 30px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--filter-btn);
+  transition: all 0.2s ease;
+}
+
+.filter-btn,
+.Pending-btn,
+.Completed-btn:active {
+  background: var(--back-filter-color);
+  color: white;
+}
+.line {
+  height: 0.5px;
+  background-color: var(--line-color);
+  margin-top: 15px;
   margin-bottom: 15px;
   
 }
-.filter-btn,.Completed-btn,.Pending-btn{
-  background-color: #EDEFF6;
-  color:#637289 ;
-  border-color: #637289;
-  border-width: 1px;
-  height: 30px;
+.todoElement {
+  flex: 2;
+  height: 40px;
+  padding: 0 15px;
   border-radius: 8px;
+  border: 1px solid var(--border-color);
+  font-family: 'Inter';
+  outline: none;
 }
-.Completed-btn{ 
-  border-left: 0px;
+.category {
+  flex: 1;
+  height: 42px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: white;
+  padding: 0 10px;
+  color: #4b5563;
+}
+#all {
+  background: var(--back-filter-color);
+  color: white;
 }
