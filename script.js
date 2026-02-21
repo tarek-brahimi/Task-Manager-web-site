@@ -1,8 +1,11 @@
-const toDolist2 = [{ name: "", cate: "", status: "pending" }];
+const toDolist2 = JSON.parse(localStorage.getItem("tasks")) || [];
 let editingIndex = null;
 let showmePending;
 let thePending;
 renderTodolist();
+function saveTasks() {
+  localStorage.setItem("tasks", JSON.stringify(toDolist2));
+}
 function renderTodolist() {
   let todohtml = "";
   let filteredList = toDolist2;
@@ -66,6 +69,7 @@ function renderTodolist() {
       const todoToDelete = filteredList[index];
       const realIndex = toDolist2.indexOf(todoToDelete);
       toDolist2.splice(realIndex, 1);
+      saveTasks();
       renderTodolist();
     });
   });
@@ -85,6 +89,7 @@ function renderTodolist() {
 
       toDolist2[editingIndex].name = newName;
       toDolist2[editingIndex].cate = newCate;
+      saveTasks();
 
       editingIndex = null;
       renderTodolist();
@@ -100,6 +105,7 @@ function renderTodolist() {
     } else {
       todo.status = "pending";
     }
+    saveTasks();
 
     
     renderTodolist();
@@ -130,6 +136,7 @@ function addList2() {
     cate,
     status: "pending",
   });
+  saveTasks();
 
   inputElement.value = "";
 
@@ -174,3 +181,22 @@ filterButtons.forEach((button) => {
     renderTodolist();
   });
 });
+let darkmode = localStorage.getItem('darkmode')
+const themeSwitch = document.getElementById('theme-switch')
+
+const enableDarkmode = () => {
+  document.body.classList.add('darkmode')
+  localStorage.setItem('darkmode', 'active')
+}
+
+const disableDarkmode = () => {
+  document.body.classList.remove('darkmode')
+  localStorage.setItem('darkmode', null)
+}
+
+if(darkmode === "active") enableDarkmode()
+
+themeSwitch.addEventListener("click", () => {
+  darkmode = localStorage.getItem('darkmode')
+  darkmode !== "active" ? enableDarkmode() : disableDarkmode()
+})
