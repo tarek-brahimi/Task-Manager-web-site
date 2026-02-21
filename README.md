@@ -5,9 +5,13 @@ Task Manager Web Site is a web application that allows users to create, edit, de
 The project is built with HTML, CSS, and JavaScript, without external frameworks, and uses localStorage to save tasks locally.
 
 Screenshots
-Light Mode
+### Light Mode
 
-Dark Mode
+![Light Mode Screenshot](img/Screenshot%202026-02-21%20024738.png)
+
+### Dark Mode
+
+![Dark Mode Screenshot](img/Screenshot%202026-02-21%20024643.png)
 
 Replace path-to-your-light-mode-image.png and path-to-your-dark-mode-image.png with the actual paths to your screenshots.
 
@@ -140,10 +144,3 @@ Event listeners:
 click events for adding, editing, saving, deleting, marking, and filtering tasks.
 
 Dynamic DOM updates for instant feedback.
-### Light Mode
-
-![Light Mode Screenshot](img/Screenshot%202026-02-21%20024738.png)
-
-### Dark Mode
-
-![Dark Mode Screenshot](img/Screenshot%202026-02-21%20024643.png)
